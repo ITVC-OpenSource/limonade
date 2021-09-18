@@ -1,0 +1,81 @@
+@font-face {
+  font-family: AMYSansWeb;
+  src: url("../assets/font/AMYSansWeb.woff");
+}
+
+*{
+  font-family: AMYSansWeb;
+}
+
+body {
+  margin: 0;
+  background-color: #394C5E;
+}
+
+form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #0084ff;
+  border-radius: 10px;
+  padding: 10px;
+  width: min-content;
+  font-size: 200%;
+}
+
+input{
+  font-size: 100%;
+  padding: 2.5px;
+  color: #0084ff;
+  background-color: #FDFDFD;
+  border-radius: 2.5px;
+  margin-bottom: 10px;
+  border: 1px solid #FDFDFD;
+}
+
+input:focus{
+  outline: 0;
+  border-color: #000;
+}
+
+/*
+.ball {
+  border-radius: 50%;
+  position: absolute;
+  z-index: -5;
+}
+
+.ball1 {
+  transform: translate(200px,-50px);
+  height: 300px;
+  width: 300px;
+  background: linear-gradient(90deg,#0084ff,#0ff);
+}
+
+.ball2 {
+  transform: translate(-200px , -140px);
+  height: 240px;
+  width:  240px;
+  background: linear-gradient(90deg,#00ffd9,#00ff84);
+} */
+
+.signup{
+  color: #FDFDFD;
+  background-color: #394C5E;
+  font-size: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
+
+p{
+  background: #0084ff;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 10px;
+  color: #FDFDFD;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
