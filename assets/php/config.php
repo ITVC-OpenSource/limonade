@@ -1,17 +1,55 @@
 <?php
-session_start();
-$server = "http://localhost";
-if (!isset($_SESSION['uname'])) {
-    header("location: " . $server . "/login/");
+if (!isset($_SESSION)) {
+  session_start();
 }
+$server = "http://localhost:8080";
 $dbh = "localhost";
 $dbu = "root";
 $dbp = "";
-$dbn = "ms-main-source-db";
+$dbn = "limonade";
 $dbc = mysqli_connect($dbh , $dbu , $dbp , $dbn);
 $PDO = new PDO("mysql:host=$dbh;dbname=$dbn" , $dbu , $dbp);
 if (!$dbc) {
   echo "Database connection error!<br>Please try later...";
+}
+
+if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw']) || $_COOKIE['uname'] !=="out" AND $_COOKIE['passw'] !=="out") {
+  $uname = $_COOKIE['uname'];
+  $passw = $_COOKIE['passw'];
+  $user_query = "SELECT * FROM `users` WHERE `uname` = '" . $uname . "' AND `passw` = '" . $passw . "'";
+  $user_quexe = $PDO->query($user_query);
+//   if (!$user_quexe) {
+//       echo '
+//       <script>
+//         setCookie("uname" , "out" , 365);
+//         setCookie("passw" , "out" , 365);
+//       </script>
+//       ';
+//   }
+  if (false) {
+  } else {
+      echo '
+      <script>
+        setCookie("uname" , "out" , 365);
+        setCookie("passw" , "out" , 365);
+      </script>
+      ';
+    echo "<script>
+      if (location.pathname === '/login/' || location.pathname === '//login/') {
+        // code...
+      }else{
+        location.assign('" . $server . "/login/');
+      }
+    </script>";
+  }
+} else {
+  echo "<script>
+    if (location.pathname === '/login/' || location.pathname === '//login/') {
+      // code...
+    }else{
+      location.assign('" . $server . "/login/');
+    }
+  </script>";
 }
 ?>
 <head>
